@@ -12,3 +12,7 @@ function draw() {
   image(capture, 0, 0, 600, 480);
   //filter('INVERT');
 }
+
+function mousePressed() {
+  saveCanvas('out', 'png');
+}
