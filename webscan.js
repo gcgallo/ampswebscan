@@ -16,7 +16,7 @@ function draw() {
 function mousePressed() {
   saveFrames("out", "png", 1, 1, function(data){
     print(data);
-    //httpPost("https://api.ocr.space/parse/image", data, text, function(ocrParsedResult), function(ocrParsedError));
+    httpPost("https://api.ocr.space/parse/image", data, text, function(ocrParsedResult), function(ocrParsedError));
   });
   
   //saveCanvas('out', 'png');
