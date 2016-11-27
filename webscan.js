@@ -14,10 +14,13 @@ function draw() {
 }
 
 function mousePressed() {
-  saveFrames("out", "png", 1, 1, function(data){
+  /*saveFrames("out", "png", 1, 1, function(data){
     print(data);
     loadImage("out.png", function(img) {
       image(img, 0, 50);
     });
-  });
+  });*/
+  
+  saveCanvas('out', 'png');
+  
 }
