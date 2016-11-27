@@ -19,7 +19,7 @@ function mousePressed() {
     httpPost("https://api.ocr.space/parse/image", data, text, function(ocrParsedResult), function(ocrParsedError));
   });
   
-  saveCanvas('out', 'png');
+  //saveCanvas('out', 'png');
   
   
 }
