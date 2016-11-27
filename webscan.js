@@ -32,7 +32,7 @@ function mousePressed() {
 		cache: false,
 		contentType: false,
 		processData: false,
-		type: 'json',
+		type: 'POST',
 	success: function (ocrParsedResult) {}})
 	
     /*httpPost("https://api.ocr.space/parse/image", formData, "form/multipart", function(ocrParsedResult){
