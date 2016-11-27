@@ -1,5 +1,5 @@
 var capture;
-var data = new FormData;
+var formData = new FormData;
 
 function setup() {
   createCanvas(600, 480);
@@ -16,13 +16,13 @@ function draw() {
 
 function mousePressed() {
 
-  saveFrames("out", "png", 1, 1, function(formData){
-	print(formData)
-	data.append("file", formData);
-	data.append("url", "https://gcgallo.github.io/ampswebscan/index.html");
-	data.append("language", "eng");
-	data.append("api", "c99af1a26988957");
-	data.append("isOverlayRequired", true);
+  saveFrames("out", "png", 1, 1, function(data){
+	print(data);
+	formData.append("file", data);
+	formData.append("url", "https://gcgallo.github.io/ampswebscan/index.html");
+	formData.append("language", "eng");
+	formData.append("api", "c99af1a26988957");
+	formData.append("isOverlayRequired", true);
 	
 	jQuery.ajax({
 
