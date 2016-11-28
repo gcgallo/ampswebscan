@@ -1,6 +1,6 @@
 var capture;
 var formData = new FormData();
-formData.append("file", "test.png");
+//formData.append("file", "test.png");
 //formData.append("url", "https://gcgallo.github.io/ampswebscan/test.png");
 formData.append("language", "eng");
 formData.append("apikey", "c99af1a26988957");
@@ -25,6 +25,7 @@ function mousePressed() {
   //saveFrames("out", "png", 1, 1, function(data){
 	//print(data);
 	
+	formData.append("file", "test.png");
 
 	//Send OCR Parsing request asynchronously
 	jQuery.ajax({
