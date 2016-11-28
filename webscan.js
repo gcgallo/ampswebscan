@@ -18,9 +18,9 @@ function mousePressed() {
 
   //saveFrames("out", "png", 1, 1, function(data){
 	//print(data);
-	formData.append("file", "douglas-rushkoff-quotes-22142.png");
+	formData.append("file", "test.png");
 	
-	formData.append("url", "http://celebriot.com/quotes_img/d/douglas-rushkoff/douglas-rushkoff-quotes-22142.png");
+	formData.append("url", "https://gcgallo.github.io/ampswebscan/test.png");
 	formData.append("language", "eng");
 	formData.append("apikey", "c99af1a26988957");
 
