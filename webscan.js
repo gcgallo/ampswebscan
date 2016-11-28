@@ -1,11 +1,14 @@
 var capture;
 var formData = new FormData();
-formData.append("file", "test.png");
+saveFrames("out", "png", 1, 1, function(data){
+print(data);
+formData.append("file", data);
 //formData.append("url", "https://gcgallo.github.io/ampswebscan/test.png");
 formData.append("language", "eng");
 formData.append("apikey", "c99af1a26988957");
 
 formData.append("isOverlayRequired", true);
+});
 
 function setup() {
   createCanvas(600, 480);
