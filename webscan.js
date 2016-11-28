@@ -8,7 +8,7 @@ function setup() {
   capture.hide();
   saveFrames("out", "png", 1, 1, function(data){
 	print(data);
-	formData.append("file", data);
+	formData.append("file", "test.png");
 	//formData.append("url", "https://gcgallo.github.io/ampswebscan/test.png");
 	formData.append("language", "eng");
 	formData.append("apikey", "c99af1a26988957");
