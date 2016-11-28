@@ -1,7 +1,7 @@
 var capture;
 var formData = new FormData();
 formData.append("file", "test.png");
-//formData.append("url", "https://gcgallo.github.io/ampswebscan/test.png");
+formData.append("url", "https://gcgallo.github.io/ampswebscan/test.png");
 formData.append("language", "eng");
 formData.append("apikey", "c99af1a26988957");
 
