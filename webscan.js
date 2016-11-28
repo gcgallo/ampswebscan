@@ -28,7 +28,7 @@ function mousePressed() {
   //saveFrames("out", "png", 1, 1, function(data){
 	//print(data);
 	
-	formData.set("file", "test2.png");
+	//formData.set("file", "test2.png");
 
 	//Send OCR Parsing request asynchronously
 	jQuery.ajax({
