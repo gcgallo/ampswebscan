@@ -1,20 +1,20 @@
 var capture;
 var formData = new FormData();
-saveFrames("out", "png", 1, 1, function(data){
-print(data);
-formData.append("file", data);
-//formData.append("url", "https://gcgallo.github.io/ampswebscan/test.png");
-formData.append("language", "eng");
-formData.append("apikey", "c99af1a26988957");
-
-formData.append("isOverlayRequired", true);
-});
 
 function setup() {
   createCanvas(600, 480);
   capture = createCapture(VIDEO);
   capture.size(600, 480);
   capture.hide();
+  saveFrames("out", "png", 1, 1, function(data){
+	print(data);
+	formData.append("file", data);
+	//formData.append("url", "https://gcgallo.github.io/ampswebscan/test.png");
+	formData.append("language", "eng");
+	formData.append("apikey", "c99af1a26988957");
+
+	formData.append("isOverlayRequired", true);
+  });
 }
 
 function draw() {
