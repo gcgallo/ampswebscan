@@ -1,5 +1,5 @@
 var capture;
-var formData = new FormData;
+var formData = new FormData();
 
 function setup() {
   createCanvas(600, 480);
