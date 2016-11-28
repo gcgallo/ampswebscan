@@ -18,7 +18,7 @@ function mousePressed() {
 
   saveFrames("out", "png", 1, 1, function(data){
 	print(data);
-	formData.append("file", "out.png);
+	formData.append("file", "out.png");
 	formData.append("url", "https://gcgallo.github.io/ampswebscan/out.png");
 	formData.append("language", "eng");
 	formData.append("api", "c99af1a26988957");
