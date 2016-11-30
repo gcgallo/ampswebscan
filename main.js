@@ -65,7 +65,8 @@ $(document).ready(function () {
 
                         $.each(textOverlay['Lines'], function (index, value) {
                             // LOOP THROUGH THE LINES AND GET WORDS TO DISPLAY ON TOP OF THE IMAGE AS OVERLAY
-                            console.log(i, v);
+                            console.log("index",  index);
+							console.log("value", value);
                         });
 
                         // YOUR CODE HERE
@@ -123,15 +124,15 @@ $(document).ready(function () {
 			ocrPostData.blob = dataURItoBlob(dataURI);
 			ocrPostData.fileName = 'ocr-file.png';
 			console.log('blob', ocrPostData.blob);
-			readText(ocrPostData);
-        } );
+			} );
     });
 
 
     $('#sendButton').on('click', function (e) {
         e.preventDefault();
-
+		readText(ocrPostData);
         
     });
 
 });
+
