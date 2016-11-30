@@ -1,29 +1,28 @@
 $(document).ready(function () {
-	var imgEl;
+	//var imgEl;
      // Send the image to the OCR API and get the text.
-    var readText = function (imgE1) {
+    var readText = function (data) {
 
         console.log('calling readText');
 
         // Create an image element and load it from the server
-        var f = new Image();
-        f.src = '/test.png';
+        //var f = new Image();
+        //f.src = '/test.png';
 
         // Prepare form data
         var formData = new FormData();
-        formData.append('file', imgEl);
+        formData.append('file', data.blob, data.fileName);
 
         //formData.append('url', 'https://thirdwitchfirstmurderer.files.wordpress.com/2012/01/macbeth-text.jpg');
         formData.append('language', 'eng');
         formData.append('apikey', 'c99af1a26988957');
-
         formData.append('isOverlayRequired', true);
 
         // Send OCR Parsing request asynchronously
         jQuery.ajax({
             url: 'https://api.ocr.space/parse/image',
             data: formData,
-            dataType: 'form/multipart',
+            dataType: 'json',
             cache: false,
             contentType: false,
             processData: false,
@@ -79,7 +78,30 @@ $(document).ready(function () {
             }
         });
     };
+	
+	function dataURItoBlob(dataURI) {
+        // convert base64/URLEncoded data component to raw binary data held in a string
+        var byteString;
+        if (dataURI.split(',')[0].indexOf('base64') >= 0) {
+            byteString = atob(dataURI.split(',')[1]);
+        } else {
+            byteString = unescape(dataURI.split(',')[1]);
 
+        }
+
+        // separate out the mime component
+        var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+        // write the bytes of the string to a typed array
+        var ia = new Uint8Array(byteString.length);
+        for (var i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
+        }
+
+        return new Blob([ia], {
+            type: mimeString
+        });
+    }
 
     Webcam.attach('#camera');
 
@@ -89,13 +111,19 @@ $(document).ready(function () {
     $('#captureButton').on('click', function (e) {
         e.preventDefault();
         $('#sendButton').prop('disabled', false);
-
-        Webcam.snap(function (dataUri) {
-            imgEl = $('<img>');
-            console.log('dataUri', dataUri);
-            imgEl.attr('src', dataUri);
+		
+		ocrPostData = {};
+		//ocrPostData.language = "en"
+		
+        Webcam.snap(function (dataURI) {
+            var imgEl = $('<img>');
+            console.log('dataURI', dataURI);
+            imgEl.attr('src', dataURI);
             $('#capturedImage').html(imgEl);
-			readText(imgE1);
+			ocrPostData.blob = dataURItoBlob(dataURI);
+			ocrPostData.fileName = 'ocr-file.png';
+			console.log('blob', ocrPostData.blob);
+			readText(ocrPostData);
         } );
     });
 
